@@ -53,6 +53,11 @@ function subtractLife () {
   printLifes()
 }
 
+function addPoints () {
+  config.score += 50
+  document.getElementById('score').textContent = config.score
+}
+
 function checkResponse () {
   // If the user does not have two open cards, return
   const cardsOpen = pairs.filter(val => val.visible)
@@ -81,6 +86,9 @@ function checkResponse () {
   // Disappear cards
   removeCard(card1)
   removeCard(card2)
+
+  // Add points to score
+  addPoints()
 
   // Check if the user wins
   if (pairs.every(val => val.resolved)) {

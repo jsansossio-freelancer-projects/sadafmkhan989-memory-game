@@ -7,7 +7,7 @@ body {
   margin: 0;
 }
 
-#box {
+.box {
   margin: 5px;
   height: 100%;
   padding: 0;
@@ -19,6 +19,24 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#score-box {
+  position: fixed;
+  width: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  display: inline-block;
+  border: 2px solid black;
+  border-radius: 1px;
+  padding: 8px;
+  margin-right: -6px;
+  
+}
+
+#score-box div {
+  display: inline-block;
 }
 
 .row {
@@ -77,5 +95,5 @@ body {
 
 #cards img {
   margin: 2px;
-  width: 100px;
+  width: 110px;
 }

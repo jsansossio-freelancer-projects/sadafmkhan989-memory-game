@@ -5,7 +5,8 @@ const config = {
   time: 90, // time in seconds
   finish: false,
   initialLifes: 3,
-  lifes: 3
+  lifes: 3,
+  score: 0
 }
 
 // Define card names
