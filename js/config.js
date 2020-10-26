@@ -1,9 +1,10 @@
 // Game config
 const config = {
   delay: 1, // time in seconds
-  pairs: 8,
+  pairs: 16,
   time: 90, // time in seconds
   finish: false,
+  initialLifes: 3,
   lifes: 3
 }
 

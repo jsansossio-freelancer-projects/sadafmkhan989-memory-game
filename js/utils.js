@@ -20,9 +20,7 @@ function putCard (position, id) {
 
   const img = document.createElement('img')
   img.src = 'images/cards/back.png'
-  img.id = 'card' + position
-  img.width = 200
-  img.height = 400
+  img.id = 'card' + position  
 
   img.onclick = function () {
     cardClickHandler(position)

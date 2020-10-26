@@ -1,5 +1,29 @@
 let gameBlock = false
 
+function printLifes () {
+  const parent = document.getElementById('lifes')
+  // Remove previous images
+  parent.innerHTML = ''
+
+  let totalInvisibles = config.initialLifes - config.lifes
+  // Print images
+  for (let i = 0; i < config.initialLifes; i++) {
+    // Create image
+    const img = document.createElement('img')
+    img.src = 'images/heart.png'
+
+    // Set invisible
+    if (totalInvisibles > 0) {
+      img.style.opacity = 0
+      totalInvisibles--
+    }
+
+    parent.appendChild(img)
+  }
+}
+
+printLifes()
+
 function cardClickHandler (position) {
   // If the game is block or you lost, ignore user click
   if (gameBlock || config.finish) {
@@ -26,8 +50,7 @@ function subtractLife () {
   if (config.lifes === 0) {
     lost()
   }
-  const text = 'You have ' + config.lifes + ' chances remaining'
-  document.getElementById('lifes').textContent = text
+  printLifes()
 }
 
 function checkResponse () {
