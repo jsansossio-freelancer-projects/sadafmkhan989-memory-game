@@ -26,10 +26,7 @@ const cards = [
 
 // Define card variantes (colors)
 const cardsVariants = [
-  'C',
-  'D',
-  'H',
-  'S'
+  'C'
 ]
 
 // Format a random card from "cards" and "cardsVariants"
