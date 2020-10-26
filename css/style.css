@@ -21,11 +21,7 @@ body {
 }
 
 #score-box {
-  position: fixed;
   width: 70px;
-  top: 65px;
-  left: 50%;
-  transform: translateX(-50%);
   background: #fff;
   display: inline-block;
   border: 2px solid black;
