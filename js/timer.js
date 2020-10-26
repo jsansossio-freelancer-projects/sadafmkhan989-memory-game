@@ -21,15 +21,14 @@ function timer () {
   // Subtract 1 to the current timer
   current--
 
+  // Update interface timer
+  document.getElementById('timer').textContent = timeFormat()
+
   // Lost
   if (current === 0) {
     lost()
     return
   }
-
-  // Update interface timer
-  document.getElementById('timer').textContent = timeFormat()
-
 }
 
 // Run timer every second
