@@ -48,10 +48,10 @@ function removeCard (card) {
     document.getElementById('card' + id)
       .style.opacity = current / 100
     // Remove loop
-    if (current === 0) {
+    if (current <= 0) {
       clearInterval(animateLoop)
     }
-  }, 5)
+  }, 20)
 
   card.resolved = true
   card.visible = false

@@ -1,9 +1,9 @@
 // Game config
 const config = {
   delay: 1, // time in seconds
-  pairs: 8,
+  pairs: 4,
   time: 90, // time in seconds
-  lost: false,
+  finish: false,
   lifes: 3
 }
 
@@ -62,14 +62,26 @@ function getPairs () {
 
 // Lost
 function lost () {
-  config.lost = true
+  config.finish = true
   // Stop timer interval
   clearInterval(timerInterval)
 
   // Write lost message
   const message = document.createElement('h1')
   message.textContent = 'You lost!'
-  document.getElementById('lost').appendChild(message)
+  document.getElementById('message').appendChild(message)
+}
+
+// Win
+function win () {
+  config.finish = true
+  // Stop timer interval
+  clearInterval(timerInterval)
+
+  // Write lost message
+  const message = document.createElement('h1')
+  message.textContent = 'You win!'
+  document.getElementById('message').appendChild(message)
 }
 
 // Globa variable

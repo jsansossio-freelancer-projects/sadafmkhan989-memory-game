@@ -2,7 +2,7 @@ let gameBlock = false
 
 function cardClickHandler (position) {
   // If the game is block or you lost, ignore user click
-  if (gameBlock || config.lost) {
+  if (gameBlock || config.finish) {
     return
   }
 
@@ -32,20 +32,20 @@ function subtractLife () {
 
 function checkResponse () {
   // If the user does not have two open cards, return
-  const cardOpens = pairs.filter(val => val.visible)
-  if (cardOpens.length !== 2) {
+  const cardsOpen = pairs.filter(val => val.visible)
+  if (cardsOpen.length !== 2) {
     return
   }
 
   const delay = config.delay * 1000
 
   // Get both cards values
-  const [ card1, card2 ] = cardOpens
+  const [ card1, card2 ] = cardsOpen
 
   // If the cards aren't equal, update image and remove one chance
   if (card1.name !== card2.name) {
-    for (let i = 0; i < cardOpens.length; i++) {
-      const card = cardOpens[i]
+    for (let i = 0; i < cardsOpen.length; i++) {
+      const card = cardsOpen[i]
       card.visible = false
       setTimeout(function () {
         updateCardImage(card.id, 'back')
@@ -55,9 +55,12 @@ function checkResponse () {
     return
   }
 
-  setTimeout(function () {
-    // Disappear cards
-    removeCard(card1)
-    removeCard(card2)
-  }, delay)
+  // Disappear cards
+  removeCard(card1)
+  removeCard(card2)
+
+  // Check if the user wins
+  if (pairs.every(val => val.resolved)) {
+    win()
+  }
 }

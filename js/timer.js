@@ -13,7 +13,7 @@ function timeFormat () {
 
 // Game timer
 function timer () {
-  if (config.lost) {
+  if (config.finish) {
     lost()
     return
   }
