@@ -31,15 +31,27 @@ function putCard (position, id) {
   container.appendChild(img)
 }
 
+// Update card image src
 function updateCardImage (id, image) {
   document.getElementById('card' + id).src = 'images/cards/' + image + '.png'
 }
 
+// Remove a card from user interface
 function removeCard (card) {
   const { id } = card
 
-  document.getElementById('card' + id)
-    .style.opacity = 0
+  // Animate
+  let current = 100
+  let animateLoop = setInterval(function () {
+    // Subtract 1 current opacity value
+    current--
+    document.getElementById('card' + id)
+      .style.opacity = current / 100
+    // Remove loop
+    if (current === 0) {
+      clearInterval(animateLoop)
+    }
+  }, 5)
 
   card.resolved = true
   card.visible = false

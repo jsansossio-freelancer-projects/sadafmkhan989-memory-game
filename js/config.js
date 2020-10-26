@@ -53,6 +53,7 @@ function getPairs () {
     }
   }
 
+  // Randomize array and convert into a javascript object
   return shuffleArray(response).map(function (name, id) {
     return {
       id,
@@ -65,10 +66,14 @@ function getPairs () {
 // Lost
 function lost () {
   config.lost = true
+  // Stop timer interval
   clearInterval(timerInterval)
+
+  // Write lost message
   const message = document.createElement('h1')
   message.textContent = 'You lost!'
   document.getElementById('lost').appendChild(message)
 }
 
+// Globa variable
 var pairs = getPairs()
